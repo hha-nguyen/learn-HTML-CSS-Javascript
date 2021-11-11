@@ -1,1 +1,1 @@
-some projects i code with HTML, CSS and Javascrpit 
+some projects i code with HTML, CSS and Javascript 
