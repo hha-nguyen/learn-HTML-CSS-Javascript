@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn pseudo element</title>
+    <style>
+        .required::before{
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+
+        .required::after{
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+        }
+        [data-tooltip]{
+            position: relative;
+        }
+        [data-tooltip]:hover:after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: 100%;
+            right: 0%;
+            left: 0%;
+            margin-top: 5px;
+            padding: 2px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <label class="required">Name</label>
+    <input type="text" required>
+    <button data-tooltip="Tooltip">Submit Form</button>
+</body>
+</html>

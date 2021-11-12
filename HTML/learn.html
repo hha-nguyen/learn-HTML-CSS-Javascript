@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Learn HTML && CSS</title>
+        <meta name="description" content="HTML and CSS: design and build website">
+        <meta name="keywords" content="learn, HTML, CSS, website">
+        <meta name="robots" content="nofollow">
+        <meta http-equiv="authur" content="Mesto">
+        <meta http-equiv="pragma" content="no-cache">
+        <!--This prevents the browser from caching the page. That is, storing it locally to save time downloading it on subsequent visits.-->
+        <meta http-equiv="expires" content="wednesday, 02 June 2021 23:59:59 GMT">
+        <!--the expires option can be used to indicate when the page should expire-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/learn.css" type="text/css" rel="stylesheet">
+        <!-- internal css
+        <style type="text/css">
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(184, 193, 197);
+            }
+            h1 {
+                color: aquamarine;
+            }
+        </style>-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1>This is the largest header</h1>
+        <h2>The smaller</h2>
+        <h3>The smaller</h3>
+        <h4>The smaller</h4>
+        <script src="" async defer></script>
+        <!--TEXT-->
+        <p> this is example of <sup>superscript</sup>   
+            <br>
+            and this is example of <sub>subscript</sub></p>
+        <hr />
+        <P>
+            above this paragrah is the horizontal
+            <br />
+            this is how <strong>strong</strong> work
+            <bt />
+            this maybe like <u>border</u>
+        </P>
+        <blockquote cite="https://bityl.co/75L3" id="blockquote">
+            <p>
+                This is a paragraph of qoute ex: <q>Try to be a rainbow in someone's cloud</q><br />
+                Don't use this element just to indent the peace of text rather u should use CSS to do that stuff <br />
+                <q>The q element is used for shorter quotes that sit within a paragraph. Browsers are supposed to put quotes around the q element, however Internet Explorer does not — therefore many people avoid using the q element.
+                </q>
+            </p>
+        </blockquote>
+        <p>
+            <abbr title="professor">Prof</abbr> Stephen Hawking is a theoretical physicist and cosmologist. <br />
+            HTML5 just uses the <!--<abbr>--> element for both abbreviations and acronyms
+        </p>
+        <address>
+            <a href="https://code.visualstudio.com/">this is adress of vs code page</a>
+            <br />
+            the paragraph inside tag adress is display in Italic
+        </address>
+        <p> It was the <del>worst</del> <ins>best</ins> idea she had ever had. <br />
+            tag above to display the inserted and deleted content 
+        </p>
+        <!--LIST page 72-->
+        <!--Ordered lists-->
+        <ol>
+            <li>The ordered list is created with the <strong>ol</strong> element. </li>
+            <li>Each item in the list is placed between an opening <strong>li</strong> tag and a closing <strong>li</strong> tag. (The li stands for list item.)</li>
+            <li>Don't encourage to use, we can use CSS list-style-type instead </li>
+        </ol>
+        <!--Unordered lists-->
+        <ul> 
+            <li>1kg King Edward potatoes</li> 
+            <li>100ml milk</li> 
+            <li>50g salted butter</li> 
+            <li>Freshly grated nutmeg</li> 
+            <li>Salt and pepper to taste</li> 
+        </ul> 
+        <!--Definition lists-->
+        <dl>
+            <dt>This is definition term 1</dt>
+            <dd>definition 1</dd>
+            <dd>definition 2</dd>
+            <dt>This is definition term 2</dt>
+            <dd>definition 1</dd>
+            <dd>definition 2</dd>
+        </dl>
+        <!--Nest lists-->
+        <ul> 
+            <li>Mousses</li> 
+            <li>Pastries  
+                <ul>   
+                    <li>Croissant</li>   
+                    <li>Mille-feuille</li>   
+                    <li>Palmier</li>   
+                    <li>Profiterole</li>  
+                </ul> 
+            </li> 
+            <li>Tarts</li> 
+        </ul> 
+        <!--LINK-->
+        <!--Link to other page on the same site-->
+        <p>
+            <ul>
+                <li><a href="index.html">The first HTML</a></li>
+                <li><a href="index2.html">The second one</a></li>
+            </ul>
+        </p>
+        <!--Email link-->
+        <a href="mailto:xamlol2982002@gmail.com">Email of me</a>
+        <!--Open link in a new window-->
+        <a href="https://reactjs.org/" target="_blank">react native</a>
+        <!--Link to a specific part of the same page-->
+        <h1 id="top">Film-Making Terms</h1> 
+        <a href="#arc_shot">Arc Shot</a><br /> 
+        <a href="#interlude">Interlude</a><br /> 
+        <a href="#prologue">Prologue</a><br /><br /> 
+        <h2 id="arc_shot">Arc Shot</h2> 
+        <p>A shot in which the subject is photographed by an   encircling or moving camera</p> 
+        <h2 id="interlude">Interlude</h2> <p>A brief, intervening film scene or sequence, not   specifically tied to the plot, that appears   within a film</p> 
+        <h2 id="prologue">Prologue</h2> <p>A speech, preface, introduction, or brief scene   preceding the the main action or plot of a film;   contrast to epilogue</p> 
+        <p><a href="#top">Top</a></p>
+        <!--Link to a specific part of another page-->
+        <a href="http:/www.htmlandcssbook.com/#bottom">link to the bottom of that page</a>
+        <!--IMAGE-->
+        <br />
+        <figure>
+            <img src="images/news/bonk.jpg" alt="This is a pic of bonker" title="bonker picture" height="301" width="401" class="bonk"/>
+            <figcaption>Horny guy will be bonked</figcaption>
+        </figure>
+        <!--TABLE page 133-->
+        <p>Viet Nam stock market</p>
+        <table>
+            <tr>
+                <th scope="col" >Name</th>
+                <th scope="col" >Last</th>
+                <th scope="col" >High</th>
+                <th scope="col" >Low</th>
+            </tr>
+            <tr>
+                <th scope="row">Advanced Compound Stone JSC (VCS)</th>
+                <td>96700</td>
+                <td>96700</td>
+                <td>95100</td>
+            </tr>
+            <tr>
+                <th scope="row">Baoviet Securities Company (BVS)</th>
+                <td>26000</td>
+                <td>26000</td>
+                <td>23000</td>
+            </tr>
+        </table>
+        <!--Spanning collum-->
+        <table>  
+            <tr>    
+                <th></th>    
+                <th>9am</th>    
+                <th>10am</th>    
+                <th>11am</th>    
+                <th>12am</th>  
+            </tr>  
+            <tr>    
+                <th>Monday</th>    
+                <td colspan="2">Geography</td>    
+                <td>Math</td>    
+                <td>Art</td>  
+            </tr>  
+            <tr>    
+                <th>Tuesday</th>    
+                <td colspan="3">Gym</td>    
+                <td>Home Ec</td>  
+            </tr> 
+        </table>
+        <!--Spanning row is corresponding--> 
+        <!--Long table-->
+        <table>  
+            <thead>    
+                <tr>      
+                    <th>Date</th>      
+                    <th>Income</th>      
+                    <th>Expenditure</th>    
+                </tr>  
+            </thead>  
+            <tbody>    
+                <tr>      
+                    <th>1st January</th>      
+                    <td>250</td>      
+                    <td>36</td>    
+                </tr> 
+            </tbody>  
+            <tfoot>    
+                <tr>      
+                    <td></td>      
+                    <td>7824</td>     
+                    <td>1241</td>    
+                </tr>  
+            </tfoot> 
+        </table>
+        <!--FORM-->
+        <form action="http://www.example.com/signin.php"  method="get"> 
+            <!--input text, password-->
+            <p>Username: <input type="text" name="Username" maxlength="30"></p>  
+            <p>Password: <input type="password" name="pass" maxlength="15" required="required"></p>
+            <!--if it is sensitive ifo like bank pass u need to use SSL-->
+            <!--input radio: use for short list-->
+            <p>Gender</p>
+            <input type="radio" id="Male" name="gender" value="Male" checked="checked">
+            <label for="Male">Male</label>
+            <input type="radio" id="Female" name="gender" value="Female">
+            <label for="Female">Female</label>
+            <input type="radio" id="Other" name="gender" value="Another one">
+            <label for="Other">Another one</label> <br /><br />
+            <!--Text area-->
+            <img src="images/news/bonk.jpg">
+            <figcaption>Are u a horny guy</figcaption>
+            <textarea name="comments" cols="20" rows="4">Enter your answer here...</textarea>
+            <!--Checked box-->
+            <P>kind of culture makes u horny</P>
+            <input type="checkbox" name="culture" value="wibu">Wibu
+            <input type="checkbox" name="culture" value="koreanboo">Koreanboo
+            <!--Drop down list box: use for very long list/ Multiple select box-->
+            <p>What type of jp film u like if u are wibu</p>
+            <select name="type" size="2" multiple>
+                <option selected>Isekai</option>
+                <option selected>Harem</option>
+                <option>School</option>
+            </select>
+            <br /><br />
+            <!--Search input-->
+            <p>Find your category</p>
+            <input type="search" name="search" placeholder="Enter your category">
+            <input type="submit" value="submit" class="submit">
+            <br /><br />
+            <!--Button input/Hidden input-->
+            <button><img src="images/news/add-button.png.crdownload" alt="add" width="10" height="10">This is add button</button>
+            <input type="hidden" name="add" value="waifuimg"> <br /><br />
+            <!--Labelling form controls-->
+            <label>Your name:
+                <input type="text" name="fullname">
+            </label>
+        </form>
+        <form action="http://www.example.com/upload.php" method="POST">
+            <!--File input box-->
+            <p>Show your Waifu ideal</p>
+            <input type="file" name="waifu"> <br />
+            <input type="submit" value="Confirm" class="submit">
+            <br />
+            <label>Date for isekai
+                <input type="date" name="isekai">
+            </label>
+            <input type="submit" value="Confirm" class="submit">
+        </form>
+        <!--Input image-->
+        <p>Enter your FB link</p>
+        <input type="text" name="link">
+        <input type="image" src="images/news/confirm.jfif" width="100" height="30">
+        <!--Group form elements/ Form validdation/ Input email/ Input URL-->
+        <fieldset>
+            <legend>Contact details</legend>
+            <label id = "Email">Email:<br />
+                <input type="email" name="email" required>
+            </label><br />
+            <label id = "Phone number">Phone number:<br />
+                <input type="text" name="phone" required>
+            </label><br />
+            <label id = "Facebook link">Facebook link:<br />
+                <input type="url" name="fblink" required>
+            </label><br />
+        </fieldset>
+        <!--Extra markup-->
+        <!--ID attribute-->
+        <!--Class attribute-->
+        <!--Block element: the element that will start in a new line when we call like: <h> <p>-->
+        <!--Inline element: the element that will start in the current line when we call like: <a> <em>-->
+        <!--Div element: group text and element in a block-->
+        <!--Span element: group text and element inline-->
+        <p>Anish Kapoor won the Turner Prize in 1991 and exhibited at the <span class="gallery">Tate Modern</span> gallery in London in 2003.</p> 
+        <!--Iframes-->
+        <embed width="450" height="350" src="http://maps.google.co.uk/maps?q=moma+lam+thao+viet+tri+phu+tho+viet+nam&amp;output=embed" /> <!--Only can use when have https-->
+        <!--Flash, video and audio-->
+        <!--Adding flash movie to web page-->
+        <title>Adding a Flash Movie</title>  
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js">
+        </script>  
+        <script type="text/javascript">   
+        swfobject.embedSWF("flash/bird.swf","bird", "400", "300", "8.0.0");
+        </script>
+        <div id="bird" class="bird">
+            <p>An animation of a bird taking a shower</p>
+        </div> 
+        <!--Video-->
+        <video src = "media/Bonk Sound effect.mp4" poster="images/news/bonk.jpg" width="300" height="400" preload="none" autoplay controls>
+            <p>Bonk video</p>
+        </video>
+        <h2>Fender Mustang</h2> 
+        <p class="limit">The Fender Mustang was introduced in 1964 as the   basis of a major redesign of Fender's ...</p> 
+        <h2>Fender Stratocaster</h2> 
+        <p class="limit">The Fender Stratocaster or "Strat" is one of the   most popular electric guitars of all time ...</p> 
+        <h2>Gibson Les Paul</h2> 
+        <p class="limit">The Gibson Les Paul is a solid body electric guitar that was first sold in 1952 ...</p>
+        <p class="one">Wurlitzer Electric Piano</p> 
+        <p class="two">Wurlitzer Electric Piano</p> 
+        <p class="three">Wurlitzer Electric Piano</p> 
+        <p class="four">Wurlitzer Electric Piano</p> 
+        <p class="five">Wurlitzer Electric Piano</p> 
+        <p class="six">Wurlitzer Electric Piano</p> 
+        <p class="seven">Wurlitzer Electric Piano</p> 
+        <p class="eight">Wurlitzer Electric Piano</p>  
+        <ul> 
+            <li class="list">Home</li> 
+            <li class="list">Products</li> 
+            <li class="coming-soon">Services</li> 
+            <li class="list">About</li> <li>Contact</li> 
+        </ul> 
+    </body>
+</html>
