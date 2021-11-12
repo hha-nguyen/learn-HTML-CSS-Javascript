@@ -1,0 +1,112 @@
+@import 'reset.css';
+/* reset trinh duyet
+*/
+/*tim hieu ve selector trong CSS*/
+/*HTML selector*/
+/*h1 {
+    color: blue;
+}
+*/
+/*nhung file css demo vao day*/
+/*
+.title{
+    color: red;
+    color: gray !important;
+}*/
+/*class selector*/
+/*
+#title{
+    color: rgb(25, 0, 255);
+}
+*/
+/*id selector: khong nen dung vi khong the tai su dung*/
+h1.title{
+    color :gray;
+}
+/*HTML selector: tìm thẻ h1 có class title*/
+/* => do uu tien cua CSS 
+selector nao cang ro rang chinh xac se tim nhanh hon va duoc uu tien thuc thi hon*/
+/*atributted selector*/
+input[type = 'password'] {
+    border: 2px solid red;
+}
+/*dung input type de chinh ca 2 input*/
+input[type = 'text'] {
+    border: 2px solid red;
+}
+input[class ~= 'user'] {
+    border: 2px solid green;
+}
+/*so khop tim kiem 1 trong nhieu gia tri cua thuoc tinh*/
+input[class *= 'c'] {
+    border: 2px solid rgb(99, 218, 20);
+}
+/*so khop tim kiem ky tu, gia tri nam trong thuoc tinh*/
+
+/*tac dong vao the facebook cho co mau rieng biet voi cac the a con lai*/
+a[href $= 'com']{
+    color: pink;
+}
+/*$: tim kiem ki tu ket thuc*/
+a[href ^= 'http']{
+    color: blueviolet;
+}
+/*$: tim kiem ki tu bat dau*/
+a[class |= 'my'] {
+    color: burlywood;
+}
+/*gia tri bat dau cua thuoc tinh la 'my' sau do phai la dau 
+-'*/
+header.header > div.header_logo + div.header_banner ~ nav.nav h4 {
+    color: red;
+}
+/*tu selector phan cap bieu dien lai HTML*/
+/*
+section.content > div.primary + div.second div.third > div.fourth > p.title {
+    color: red;
+}
+*/
+h1.title, p.title{
+    color: darkcyan;
+}
+/*gom nhom cac selector cung thuoc tinh*/
+/*pesudo selector*/
+div.pesudo-class :first-child {
+    color: red;
+}
+div.pesudo-class :first-of-type {
+    color: blueviolet;
+}
+/*tim kiem nhung loai con dau tien*/
+div.pesudo-class :last-child {
+    color: brown;
+}
+div.pesudo-class :last-of-type {
+    color: darkgoldenrod;
+}
+div.pesudo-class :nth-child(3) {
+    color: gray;
+}
+/*tro vao phan tu thu 3*/
+div.pesudo-class :nth-of-type(3) {
+    color: rgb(99, 218, 20);
+}
+div.pesudo-class :nth-last-of-type(2) {
+    color: darkmagenta;
+}
+/*tinh tu cuoi len*/
+div.parent :only-child{
+    color: red;
+}
+/*tac dong vao the h1 nhung a van thay doi do tinh ke thua trong CSS, khong phai moi thuoc tinh deu co tinh ke thua*/
+input[type="email"]:focus{
+    width: 500px;
+    height: 30px;
+    border: 2px solid blue;
+}
+/*neu co dau ' ' giua cac phan tu CSS se hieu la ben trong phan tu truoc*/
+input[type = "checkbox"]:focus{
+    width: 30px;
+    height: 30px;
+}
+

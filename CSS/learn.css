@@ -1,0 +1,367 @@
+/*Unit in CSS:
+em: 1em = 1*current value in px;
+vh: 1vh = 1/100 width of scene
+*/
+/* Selectors
+universal selector(apply to all element on the page): * {}
+type selector(match element names): h1, h2, h3 {}
+class selector (match an element whose class attribute has a value that matches the one specified after the period symbol (.): .note {}, p.note {}
+id selector (match any element whose id attribute has a value that matches the one specified after the pound ($) or hash symbol (#): #introduction {}
+child selector (match an element that is a direct child  of another) : li>a {} 
+descendent selector (match an element that is a descendent of another specified element, not just a direct child of that element): p a {}
+adjacent sibling selector (match an element that is next sibling of another) : h1+p {}
+general sibling selector (match an element that is sibing of another, although it doesnot have to be the directly preceding element): 
+*/
+/* Precedence: the latter of the two will take the precedence*/
+/*Specificity: if the one is more specify than the others, specific rull will take precedence more than the general one */
+/*Important: can add (!important) to make it more important*/
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+strong {
+    color: aqua;
+}
+p sub {
+    color: aquamarine;
+}
+#arc_shot {
+    color: blueviolet;
+}
+p {
+    font-size: 75%;
+}
+/*Inheritance*/
+.bird {
+    color: brown;
+}
+/*Color
+RGB value: how much are red, green, blue are used to make it up: rgb(100,90,100)
+Hex code: These are six-digit codes that represent the amount of red, green and blue in a color, preceded by a pound or hash # sign. For example: #ee3e80
+Color names: just black or green or sth els
+*/
+h2 {
+    background-color: #ee30ee;
+}
+h3 {
+    background-color: darkgrey;
+    background-color: hsla(0, 100%, 50%, 0.6)
+}
+/*Opacity*/
+/*hsl : hue, saturation, lightness
+hsla: add Alpha: 0-1 transparency*/
+h2 {
+    opacity: 60%;
+    background-color: hsl(27, 100%, 50%);
+}
+/*Text*/
+/*  Serif: have more detail->used for long passage beacause it is easy to read 
+    San-serif: little detail-> have lower resolution than print, used for small text
+    Monospace: used for code because it makes text easy to follow
+*/
+/* weight, style, stretch  */
+/* Specifying typefaces*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Font size
+Pixel: 16px - default size: h1: 24px, h2: 18px, h3: 14px, body 12px;
+Percentages: 200%;
+Ems: 1.3em;
+*/
+@font-face {
+    font-family: 'BubbleShine';
+    src: url('/font/BubbleShine.otf');
+}
+h3 {
+    font-family: BubbleShine;
+    font-size: 18px;
+}
+/*font-weight*/
+h1, h2, h3, h4{
+    font-weight: bold;
+}
+/*font-style*/
+h4 {
+    font-style: italic;
+}
+/*Text-transform*/
+#blockquote {
+    text-transform: uppercase;
+}
+/*Underline, strike*/ 
+#blockquote {
+    text-decoration: underline;
+}
+/*line-height*/
+p {
+    line-height: 1.4em;
+}
+/*letter, word spacing*/
+h1, h2 {
+    letter-spacing: normal;
+}
+/*text-algin*/
+#blockquote{
+    text-align: center;
+}
+/*vertical-align*/
+/*Indenting text*/
+h1 {
+    background-image: url("/images/news/backgroundimage.jpg");
+    text-indent: -9000px;
+    background-repeat: no-repeat;
+}
+/*DROP SHADOW*/
+/*Text shadow
+value 1: fall to the right, left
+value 2: fall to the top, bottom'
+value 3: amount of blur to drop
+value 4: color*/
+#blockquote{
+    text-shadow: 1px 1px 2px #ee30ee;
+}
+/*First letter or line*/
+p.intro::first-letter {
+    font-size: 200%;
+}
+/*Styling Links*/
+a:link {
+    color: blue;
+    text-decoration: underline;
+}
+a:visited{
+    color: #ee30ee;
+}
+/*Responding to user*/
+input.submit:hover{
+    background-color: brown;
+}
+input.submit:active{
+    background-color: chocolate;
+}
+input.text:focus{
+    color: #cccccc;
+}
+/*Attribute Selectors
+Existance ([]): match a specific attribute whatever its value: p[class]
+Equality([=]): match a specific attribute with a specific value: p[class="dog"]
+Space:[~=]: match a specific attribute whose value appears in a space-saparated list of word: p[class~="dog"]: only need word dog in class name
+Prefix:[^=]: match a specific attribute whose value begin with a specific string: p[attr^"d"]
+Substring[*=]: match a specific attribute whose value contains a specific substrings: p[attr*"do"]
+Suffix[$=]: match a specific attibute whose value ends with specific strings: p[attr$"g"]
+*/
+/*BOXES*/
+/*Boxes dimension (width and height*/
+h2{
+    width: 300px;
+    height: 50px;
+}
+/*Limitting width (min-width, max-width)*/
+p.limit{
+    min-width: fit-content;
+    max-width: fit-content;
+    text-align: left;
+    padding: 5px;
+    margin: 0px;
+}
+/*Limiting height (min-height, max-height)*/ 
+p.limit{
+    min-height: fit-content;
+    max-height: fit-content;
+}
+/*Overflow content (hidden, scrolling)*/
+/*BODER, MARGIN, PADDING*/
+/*  Boder: Every box has a border (even if it is not visible or is specified to be 0 pixels wide). The border separates the edge of one box from another.
+    Margin: Margins sit outside the edge of the border. You can set the width of a margin to create a gap between the borders of two adjacent boxes.
+    Padding is the space between the border of a box and any content contained within it. Adding padding can increase the readability of its contents. */
+/*Boder width*/
+p.limit {
+    border-width: 100px 2px 11px 4px; /*top, right, bottom, left*/
+}
+/*Border style*/
+p.one {border-style: solid;} 
+p.two {border-style: dotted;} 
+p.three {border-style: dashed;} 
+p.four {border-style: double;} 
+p.five {border-style: groove;} 
+p.six {border-style: ridge;} 
+p.seven {border-style: inset;} 
+p.eight {border-style: outset;}
+/*Border color*/
+p.one{
+    border-color: green yellow rebeccapurple brown;
+}
+/*Pading*/
+p.one {
+    padding: 10px;
+}
+/*Margin*/
+p.one{
+    margin: 10px 100px 10px 100px;
+    text-align: center;
+}
+/*Centering content (auto)*/
+p.two{
+    margin: 10px auto 10px auto;
+    text-align: center;
+}
+/*Change inline, block (display): allows you to turn an inline element into a block-level element or vice versa, and can also be used to hide an element from the page */ 
+li.list{
+    display: inline;
+    padding: 10px;
+}
+li.coming-soon{
+    display: none;
+}
+/*Visibility*/
+li.coming-soon{
+    visibility: hidden;
+}
+/*Border images (border-image)*/
+p.three{
+    -moz-border-image: url("/images/news/dotImage.jpg"); /*-mos: firefox*/
+    border-image: stretch;
+    border-width: 15px;
+    border-image: url("/images/news/dotImage.jpg");
+    -webkit-border-image: url("/images/news/dotImage.jpg"); /*-wedkit: chrome, safari*/
+    border-image: stretch;
+    text-align: center;
+}
+/*Box shadows*/
+/*
+Horizonal offset: Negative values position the shadow to the left of the box.
+Vertical offset: Negative values position the shadow to the top of the box.
+Blur distance: if omittedm the shadow is solid like a bolder
+Spread of shadow: if used, a positive value will cause the shadow to expand in all directions, and a negative value will make it contract.
+*/
+p.four{
+    box-shadow: -5px -5px #777777;
+}
+p.five{
+    box-shadow: 5px 5px 5px #777777;
+}
+p.six{
+    box-shadow: 5px 5px 5px 5px #777777;
+}
+p.seven{
+    box-shadow: inset 0px 0px 10px #777777;
+}
+/*Rounder conner(border-radius)*/ 
+p.eight{
+    border-radius: 10px;
+}
+/*Eliptical shapes (border-radius)*/
+p.one{
+    border-top-left-radius: 80px 50px;
+}
+p.two{
+    border-radius: 1em 4em 3em 5em;
+}
+/*LIST, TABLE AND FORM*/
+/*Bullet point style (List-style-type)*/ 
+ul{
+    list-style-type: square;
+}
+ol{
+    list-style-type: upper-roman;
+}
+/*images for bullet(list-style-image): don't encorage to use*/
+/*
+ul{
+    list-style-image: url(/images/news/star_bullet.jpg); 
+}*/
+li{
+    margin: 0px;
+    padding: 5px 0px 5px 30px;
+    list-style: none;
+    background-image: url(/images/news/star_bullet.jpg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 15px;
+}
+/* Postioning the marker (list-style-postion)*/
+/*Table propreties*/
+/*345*/
+table{
+    width: 600px;
+}
+th, td{
+    padding: 7px 10px 10px 10px;
+}
+th{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #141313;
+    background-color: rgb(192, 43, 43);
+    text-align: left;
+}
+
+/*Border on emty cell(empty-cells)*/
+table{
+    empty-cells: hide;
+}
+/*Gap between cells (border-spacing, border-collapse)*/  
+table{
+    border-spacing: 5px;
+}
+/*STYLING FORM*/
+input{
+    font-size: 120%;
+    color: black;
+    background-color: antiquewhite;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    display: inline;
+    margin-bottom: 10px;
+}
+input:focus{
+    background-color: #dfd6d6;
+}
+fieldset label #Email{
+    background-image: url(/images/interface/email_logo.png);
+}
+input.submit{
+    color: black;
+    text-shadow: 0px 1px 1px #ffffff;
+    border-bottom: 2px solid #b2b2b2;
+    background-color: #b9e4e3;
+}
+input.submit:hover{
+    color: #333333;
+    border: 1px solid #a4a4a4; 
+    border-top: 2px solid #b2b2b2; 
+    background-color: #8dc5b0; 
+}
+/*Styling fieldset, legend*/
+fieldset{
+    width: 300px;
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+}
+legend{
+    background-color: #efefef;
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+/*Cursor styles (cursor)*/
+a{
+    cursor: wait;
+}
+/*LAYOUT*/
+
+
+
+
+
