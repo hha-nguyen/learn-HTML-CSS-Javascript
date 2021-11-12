@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Learn unit css</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/unit.css">
+        <style>
+            .fifty-percent {
+                width: 50%;/*equal 50% parent div. If doesn't have parent, equal to 50% size of entire the screen*/
+                background-color: aquamarine;
+                border: 1px solid black;
+                margin: 1px;
+            }
+            .fifty-vw{
+                width: 50vw;/*view width: equal to 50% size of entire width of the screen*/
+                background-color: brown;
+                border: 1px solid black;
+                margin: 1px;
+            }   
+            
+            .twenty-five-vh{
+                height: 25vh;/*view height: equal to 25% size of entire height of the screen but still in the parent*/
+                background-color: cadetblue;
+                border: 1px solid black;
+                margin: 1px;
+            }
+            .one-hundred-pixcels{
+                width: 100px;
+                background-color: blue;
+                border: 1px solid black;
+                margin: 1px;
+            }
+
+            .one-rem{
+                font-size: 1rem; /*100% font size of the root font size*/
+            }
+            .one-em{
+                font-size: 1em; /*100% font size of the parent font size: 30px*/
+            }
+            .two-rem{
+                font-size: 2rem; 
+            }
+            .two-em{
+                font-size: 2em;
+            }
+
+            .em-icon{
+                width: 1em;
+                height: 1em;
+                background-color: brown;
+            }
+            .rem-icon{
+                width: 1rem;
+                height: 2rem;
+                background-color: brown;
+            }
+            .icon-container.large{
+                font-size: 30px;
+            }
+            .two-hundred-percent{
+                font-size: 200%;
+            }
+            .parent{
+                width: 135px;
+                border: 2px solid black;
+                padding: 2px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            <div class="box fifty-percent">50%</div>
+            <div class="box one-hundred-pixcels">100px</div>
+            <div class="box fifty-vw">50vw</div>
+            <div class="box twenty-five-vh">25vh</div>
+            <div class="one-rem">1rem</div>
+            <div class="one-em">1em</div>
+            <div class="two-em">2em</div>
+            <div class="two-rem">2rem</div>
+            <div class="two-hundred-percent">200%</div>
+            <hr>
+            <div class="parent">
+                <div class="box fifty-percent">50%</div>
+                <div class="box one-hundred-pixcels">100px</div>
+                <div class="box fifty-vw">50vw</div>
+                <div class="box twenty-five-vh">25vh</div>
+                <div class="one-rem">1rem</div>
+                <div class="one-em">1em</div>
+                <div class="two-em">2em</div>
+                <div class="two-rem">2rem</div>
+                <div class="two-hundred-percent">200%</div>
+            </div>
+            <hr>
+            <div class="icon-container">
+                <div class="icon em-icon"></div>
+                <span class="icon-text">1em icon</span>
+            </div>
+            <div class="icon-container">
+                <div class="icon rem-icon"></div>
+                <span class="icon-text">1rem icon</span>
+            </div>
+            <div class="icon-container large">
+                <div class="icon em-icon"></div>
+                <span class="icon-text">1em icon</span>
+            </div>
+            <div class="icon-container large">
+                <div class="icon rem-icon"></div>
+                <span class="icon-text">1rem icon</span>
+            </div>
+    </body>
+</html>
