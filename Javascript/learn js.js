@@ -75,6 +75,100 @@ function findSolution(target) {
 }
 console.log(findSolution(24)); 
 //Growing function
+function zeroPad(number, width) { 
+    let string = String(number); 
+    while (string.length < width) { 
+        string = "0" + string; 
+    } return string; 
+}
+function printFarmInventory(cows, chickens, pigs) { 
+    console.log(`${zeroPad(cows, 3)} Cows`); 
+    console.log(`${zeroPad(chickens, 3)} Chickens`); 
+    console.log(`${zeroPad(pigs, 3)} Pigs`); 
+}
+printFarmInventory(7, 16, 3);
+//Functions and side effects 
+//Practice func
+min_num = (num1, num2) => {return num1<num2?num1:num2};
+console.log(min_num(1, 2));
+function checkEvenOrOddNum(numberChecking) {
+    if (!numberChecking) return `Even num`;
+    if (numberChecking == -1) return `Odd num`;
+    return checkEvenOrOddNum(numberChecking-2);
+}
+
+let resultChecked = checkEvenOrOddNum(50);
+console.log(resultChecked);
+let countChar = (stringChecking, charChecking) => {
+    let count = 0;
+    for (let i = 0; i < stringChecking.length; ++i) {
+        if (stringChecking[i] == charChecking) {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countChar("aBcBdCDB", 'B'));
+
+//DATA STRUCTURES: OBJECTS AND ARRAYS
+//Properties
+//Method
+let doh = "Doh"; 
+console.log(typeof doh.toUpperCase); 
+// → function 
+console.log(doh.toUpperCase()); 
+// → DOH
+//Objects
+//Values of the type object are arbitrary collections of properties. One way to create an object is by using braces as an expression.
+let day1 = { 
+    squirrel: false, events: ["work", "touched tree", "pizza", "running"] 
+}; console.log(day1.squirrel); 
+// → false console.log(day1.wolf); 
+// → undefined 
+//day1.wolf = false; 
+//console.log(day1.wolf); 
+// → false
+
+let anObject = {left: 1, right: 2}; 
+console.log(anObject.left); 
+// → 1 delete anObject.left; 
+console.log(anObject.left); 
+// → undefined 
+console.log("left" in anObject); 
+// → false 
+console.log("right" in anObject); 
+// → true
+console.log(Object.keys({x: 0, y: 0, z: 2})); 
+// → ["x", "y", "z"]
+//Object.assign
+let objectA = {a: 1, b: 2};
+Object.assign(objectA, {b: 3, c: 4}); 
+console.log(objectA); 
+// → {a: 1, b: 3, c: 4}
+
+//Mutability
+let object1 = {value: 10}; 
+let object2 = object1; 
+let object3 = {value: 10};
+console.log(object1 == object2); 
+// → true console.log(object1 == object3); // → false
+object1.value = 15; 
+console.log(object2.value); 
+// → 15 
+console.log(object3.value); 
+// → 10
+
+//The lycanthrope's log 
+//Computing correlation
+//Array loops 
+
+
+
+
+
+
+
+
 
 
 
