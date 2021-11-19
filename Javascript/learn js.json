@@ -1,0 +1,11 @@
+{
+    "data" : 
+    [
+     125,
+     { "name" : "Code Learn" , "age" : 2 },
+     { "name" : "Javascript" , "age" : 25 },
+      "string any"
+     ] ,
+     "count" : 3000,
+     "more_info" : { "status" : 200 , "message" : "I'm fine OK" }
+}

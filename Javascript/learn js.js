@@ -161,7 +161,111 @@ console.log(object3.value);
 //The lycanthrope's log 
 //Computing correlation
 //Array loops 
+/*
+for (let entry of JOURNAL) {
+    console.log(`${entry.events.length} events.`);
+}
+*/
 
+// The final analysis 
+
+// Strings and their properties 
+console.log("coconuts".slice(4, 7)); 
+// → nut 
+console.log("coconut".indexOf("u")); 
+// → 5
+console.log("one two three".indexOf("ee")); 
+// → 11
+console.log(" okay \n ".trim()); 
+// → okay
+let sentence = "Secretarybirds specialize in stomping"; 
+let words = sentence.split(" "); console.log(words); 
+// → ["Secretarybirds", "specialize", "in", "stomping"] 
+console.log(words.join(". ")); 
+// → Secretarybirds. specialize. in. stomping
+console.log("LA".repeat(3)); 
+// → LALALA
+
+//Rest parameters
+function max(...numbers) { 
+    let result = -Infinity; 
+    for (let number of numbers) { 
+        if (number > result) result = number; 
+    } return result; 
+} 
+console.log(max(4, 1, 9, -2)); 
+// → 9
+let numbers = [5, 1, 7]; 
+console.log(max(...numbers)); 
+// → 7
+let wordss = ["never", "fully"]; 
+console.log(["will", ...wordss, "understand"]); 
+// → ["will", "never", "fully", "understand"]
+
+//The Math object 
+function randomPointOnCircle(radius) { 
+    let angle = Math.random() * 2 * Math.PI; 
+    return {
+        x: radius * Math.cos(angle), 
+        y: radius * Math.sin(angle)
+    }; 
+} 
+console.log(randomPointOnCircle(2)); 
+// → {x: 0.3667, y: 1.966}
+console.log(Math.floor(Math.random() * 10)); 
+// → 2
+
+//Destructuring
+
+//JSON
+let string = JSON.stringify({squirrel: false, events: ["weekend"]}); 
+console.log(string); 
+// → {"squirrel":false,"events":["weekend"]} 
+console.log(JSON.parse(string).events); 
+// → ["weekend"]
+
+//Dùng phương thức JSON.parse() để tạo ra object javascript:
+//Dùng phương thức JSON.stringify() để tạo chuỗi JSON từ Object Javascript
+var str = JSON.stringify({
+    "company":"facebook",
+    "CEO":"Mark Zuckerberg",
+    "employees":[{"name": "John","age": 25},{"name": "Anna","age": 29}]
+    });
+
+var obj = JSON.parse(str); // đây là object javascript được tạo từ chuỗi JSON
+
+/* truy cập vào thuộc tính JSON bằng tên thuộc tính */
+console.log(obj.company) ;           // facebook
+console.log(obj.employees[0].name) ; // John
+console.log(obj.employees[1].name) ; // Anna
+//Có thể thay đổi giá trị thuộc tính của JSON bằng cách truy cập tên thuộc tính.
+obj.employees[0].name = "Mesto";
+console.log(obj.employees[0].name);
+//JSON.parse () có thể nhận thêm tham số thứ 2 để kiểm tra mỗi thuộc tính trước khi trả về giá trị.
+var text = '{"name":"John", "birth":"1996-05-15", "city":"New York"}';
+var obj = JSON.parse(text, function (key, value) {
+  if (key == "birth") {
+    return new Date(value);
+  } else {
+    return value;
+  }
+});
+console.log(obj.birth);
+//Nếu muốn giữ lại function làm giá trị thì phải chuyển function thành chuỗi trước khi chạy phương thức JSON.stringify().
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
