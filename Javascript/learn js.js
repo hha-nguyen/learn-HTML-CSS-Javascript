@@ -448,6 +448,10 @@ const t = value => {
     console.log(someValue.toString() // "t(2)"
     );
 
+//Strings and character codes
+//Recognizing text 
+
+
 
 
 
