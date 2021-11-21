@@ -252,24 +252,199 @@ var obj = JSON.parse(text, function (key, value) {
 });
 console.log(obj.birth);
 //Nếu muốn giữ lại function làm giá trị thì phải chuyển function thành chuỗi trước khi chạy phương thức JSON.stringify().
+//Exercises
+//The sum of a range 
+function range(start, end, step) {
+    let arr = [];
+    for (let i = start; i <= end; i += step) {
+        arr.push(i);
+    }
+    return arr;
+}
+let arr = range(1, 10, 2);
+function sum(arr) {
+    let res = 0;
+    for (let i of arr) {
+        res += i;
+    }
+    return res;
+}
+let res = sum(arr);
+console.log(res);
+//Reversing an array 
+let arr1 = [1, 2, 6, 7, 3];
+function reverseArray(arr) {
+    let newArr = [];
+    for (let i = arr.length - 1; i >= 0; --i) {
+        newArr.push(arr[i]);
+    }
+    return newArr;
+}
+console.log(reverseArray(arr1));
+console.log(arr1.reverse());
+//A list
+let arr2 = [1, 2, 3];
+function arrayToList(array) {
+    var list = null;
+    for (var i = array.length-1; i >= 0; i--)
+        list = {
+            value: array[i], 
+            rest:list
+        };
+    return list;
+}
+let list1 = arrayToList(arr2);
+console.log(list1);
+
+function listToArray(list) {
+    let arr = [];
+    while(list.rest!=null) {
+        arr.push(list.value);
+        list = list.rest;
+    }
+    arr.push(list.value);
+    return arr;
+}
+console.log(listToArray(list1));
+
+function nth(list, position) {
+    let count = 0;
+    while (list.rest != null) {
+        count++;
+        if (count == position) {
+            console.log(list.value);
+        }
+        list = list.rest;
+    }
+}
+nth(list1, 2);
+//Deep comparison 
+function deepEqual(obj1, obj2) {
+    if (typeof obj1 == 'object' && obj1 != null && typeof obj2 == 'object' && obj2 != null) {
+        let count1 = [0, 0];
+        for (let i in obj1) count1[0]++;
+        for (let i in obj2) count1[1]++;
+        if (count1[0] != count1[1]) return false;
+        for (let i in obj1) {
+            if (!(i in obj2) || !deepEqual(obj1[i], obj2[i])) return false;
+        }
+        return true;
+    } else return obj1 === obj2;
+}
+let obj1 = {
+    here: 2
+};
+console.log(deepEqual(obj1, obj1));
+// → true
+console.log(deepEqual(obj1, {here: 1}));
+// → false
+console.log(deepEqual(obj1, {here: 2}));
+// → true
+console.log(obj1 === { here:2 });
+// → false
+
+//HIGHER-ORDER FUNCTIONS
+//Abstraction
+//Abstracting repetition 
+function repeat(n, action) { 
+    for (let i = 0; i < n; i++) { 
+        action(i); 
+    } 
+}
+let labels = []; 
+repeat(5, i => { 
+    labels.push(`Unit ${i + 1}`); 
+});
+console.log(labels); 
+// → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
+//Higher-order functions 
+function greaterThan(n) { 
+    return m => m > n; 
+} 
+let greaterThan10 = greaterThan(10); 
+console.log(greaterThan10(11)); 
+// → true
+//And we can have functions that change other functions
+function noisy(f) { 
+    return (...args) => { 
+        console.log("calling with", args); 
+        let result = f(...args); 
+        console.log("called with", args, ", returned", result); 
+        return result; 
+    }; 
+}
+noisy(Math.min)(3, 2, 1); 
+// → calling with [3, 2, 1] 
+// → called with [3, 2, 1] , returned 1
+//We can even write functions that provide new types of control flow.
+function unless(test, then) { 
+    if (!test) then(); 
+}
+repeat(3, n => { 
+    unless(n % 2 == 1, () => { 
+        console.log(n, "is even"); 
+    }); 
+}); 
+// → 0 is even 
+// → 2 is even
+["A", "B"].forEach(l => console.log(l));
+//Script data set 
+/*
+function textScripts(text) {
+    let scripts = countBy(text, char => {
+      let script = characterScript(char.codePointAt(0));
+      return script ? script.name : "none";
+    }).filter(({name}) => name != "none");
+  
+    let total = scripts.reduce((n, {count}) => n + count, 0);
+    if (total == 0) return "No scripts found";
+  
+    return scripts.map(({name, count}) => {
+      return `${Math.round(count * 100 / total)}% ${name}`;
+    }).join(", ");
+  }
+  
+ console.log(textScripts('英国的狗说"woof", 俄罗斯的狗说"тяв"'));*/
+//Filtering arrays 
+function filter(arr, test) {
+    let pass = [];
+    for (let i of arr) {
+        if (test(i)) pass.push(i);
+    }
+    return pass;
+}
+console.log(filter([1, 2, -1, 0], (i) => {if (i > 0) return true}));
+console.log([1, 2, -1, 0].filter((i) => {return (i < 0)}));
+
+//Transforming with map 
+function map(array, transform) { 
+    let mapped = []; 
+    for (let element of array) { 
+        mapped.push(transform(element)); 
+    } 
+    return mapped; 
+}
+console.log(map([1, 5, 7, -2], (ele) => {return ++ele;}));
+
+//Summarizing with reduce
+function reduce(array, combine, start) {
+    let current = start; 
+    for (let element of array) { 
+        current = combine(current, element); 
+    } return current; 
+}
+console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0)); 
+// → 10
+console.log([1, 2, 3, 4].reduce((a, b) => a + b)); 
+// → 10
+
+//Composability
 
 
 
 
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
+  
 
 
 
