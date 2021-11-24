@@ -517,6 +517,84 @@ let killerRabbit = Object.create(protoRabbit);
 killerRabbit.type = "killer"; 
 killerRabbit.speak("SKREEEE!");
 
+//Classes
+function makeRabbit(type) { 
+    let rabbit = Object.create(protoRabbit); 
+    rabbit.type = type; return rabbit; 
+}
+function Rabbit(type) { 
+    this.type = type; 
+} 
+Rabbit.prototype.speak = function(line) { 
+    console.log(`The ${this.type} rabbit says '${line}'`); 
+};
+let weirdRabbit = new Rabbit("weird");
+console.log(Object.getPrototypeOf(Rabbit) == Function.prototype); 
+// → true 
+console.log(Object.getPrototypeOf(weirdRabbit) == Rabbit.prototype); 
+// → true
+
+//Classes notation
+/*
+class Rabbit {
+    constructor(type) { 
+        this.type = type; 
+    } 
+    speak(line) { 
+        console.log(`The ${this.type} rabbit says '${line}'`); 
+    }
+}
+let killerRabbit = new Rabbit("killer"); 
+let blackRabbit = new Rabbit("black");*/
+let object = new class { getWord() { return "hello"; } }; console.log(object.getWord()); // → hello
+
+//Overriding derived properties 
+Rabbit.prototype.teeth = "small"; console.log(killerRabbit.teeth); // → small 
+killerRabbit.teeth = "long, sharp, and bloody"; 
+console.log(killerRabbit.teeth); 
+// → long, sharp, and bloody 
+console.log(Rabbit.prototype.teeth); 
+// → small
+console.log(Array.prototype.toString == Object.prototype.toString); 
+// → false 
+console.log([1, 2].toString()); 
+// → 1,2
+console.log(Object.prototype.toString.call([1, 2])); 
+// → [object Array]
+
+//Maps
+let agess = { Boris: 39, Liang: 22, Júlia: 62 };
+console.log(`Júlia is ${agess["Júlia"]}`); 
+// → Júlia is 62 
+console.log("Is Jack's age known?", "Jack" in agess); 
+// → Is Jack's age known? false 
+console.log("Is toString's age known?", "toString" in agess); 
+// → Is toString's age known? true
+console.log("toString" in Object.create(null)); // → false
+let ages = new Map(); 
+ages.set("Boris", 39); 
+ages.set("Liang", 22);
+ ages.set("Júlia", 62);
+console.log(`Júlia is ${ages.get("Júlia")}`); // → Júlia is 62 
+console.log("Is Jack's age known?", ages.has("Jack")); // → Is Jack's age known? false 
+console.log(ages.has("toString")); // → false
+console.log({x: 1}.hasOwnProperty("x")); // → true 
+console.log({x: 1}.hasOwnProperty("toString")); // → false
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 
