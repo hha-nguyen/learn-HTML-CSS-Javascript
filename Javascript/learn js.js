@@ -450,6 +450,80 @@ const t = value => {
 
 //Strings and character codes
 //Recognizing text 
+function countBy(items, groupName) { 
+    let counts = []; 
+    for (let item of items) { 
+        let name = groupName(item); 
+        let known = counts.findIndex(c => c.name == name); 
+        if (known == -1) { 
+            counts.push({name, count: 1}); 
+        } else { 
+            counts[known].count++; 
+        } 
+    } 
+    return counts; 
+}
+console.log(countBy([1, 2, 3, 4, 5], n => n > 2)); // → [{name: false, count: 2}, {name: true, count: 3}]
+
+//Exercise
+//Flattening
+let arr2D = [[1, 2, 3], [2, -1, 4], [3, 6, 9]];
+console.log([].concat(...arr2D)); //using concat
+let flattened = arr.reduce((acc, curVal) => {
+    return acc.concat(curVal)
+}, []); //using reduce and concat
+//your own loop
+function myOwnLoop(start, testFunc, bodyFunc, updateFunc) {
+    for (let value = start; testFunc(value); value = updateFunc()) {
+        bodyFunc(value);
+    }
+}
+myOwnLoop(1, n => n>0, console.log, n => --n);
+
+//The Secret Life of Objects
+//Encapsulation
+//Methods
+function speak(line) { 
+    console.log(`The ${this.type} rabbit says '${line}'`); 
+} 
+let whiteRabbit = {type: "white", speak}; 
+let hungryRabbit = {type: "hungry", speak};
+whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!"); 
+// → The white rabbit says 'Oh my ears and whiskers, how 
+// late it's getting!' hungryRabbit.speak("I could use a carrot right now."); 
+// → The hungry rabbit says 'I could use a carrot right now.'
+speak.call(hungryRabbit, "Burp!"); // → The hungry rabbit says 'Burp!'
+
+//Prototypes
+let empty = {}; 
+console.log(empty.toString); 
+// → function toString()…{} 
+console.log(empty.toString()); 
+// → [object Object]
+console.log(Object.getPrototypeOf({}) == Object.prototype); 
+// → true 
+console.log(Object.getPrototypeOf(Object.prototype)); 
+// → null
+console.log(Object.getPrototypeOf(Math.max) == Function.prototype); 
+// → true 
+console.log(Object.getPrototypeOf([]) == Array.prototype); 
+// → true
+let protoRabbit = { 
+    speak(line) { 
+    console.log(`The ${this.type} rabbit says '${line}'`); 
+    } 
+}; 
+let killerRabbit = Object.create(protoRabbit); 
+killerRabbit.type = "killer"; 
+killerRabbit.speak("SKREEEE!");
+
+
+
+
+
+
+
+
 
 
 
