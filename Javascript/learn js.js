@@ -490,7 +490,8 @@ let whiteRabbit = {type: "white", speak};
 let hungryRabbit = {type: "hungry", speak};
 whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!"); 
 // → The white rabbit says 'Oh my ears and whiskers, how 
-// late it's getting!' hungryRabbit.speak("I could use a carrot right now."); 
+// late it's getting!' 
+hungryRabbit.speak("I could use a carrot right now."); 
 // → The hungry rabbit says 'I could use a carrot right now.'
 speak.call(hungryRabbit, "Burp!"); // → The hungry rabbit says 'Burp!'
 
@@ -751,12 +752,68 @@ console.log(v.length);
 console.log(v.minus(new Vec(1, 2)));
 console.log(v.plus(new Vec(1, -1)));
 
-//Groups
+//Groups and Iterable groups 
 class Group {
     constructor (value) {
-        
+        this.group = [];
+    }
+    add(value) {
+        if (!this.group.indude(value))
+            this.group.push(value);
+    }
+    has(value) {
+        if (this.group.indexOf(value) != -1) return true;
+        else return false;
+    }
+    delete(value) {
+        let index = this.group.indexOf(value);
+        if (index != -1) {
+            this.group.splice(index, 1);
+        }
+    }
+    static fromNomalArray(arr) {
+        let g = [];
+        for (let ele of arr) {
+            if (!g.includes(ele)) {
+                g.push(ele);
+            }
+        }
+        return g;
+    }
+    [Symbol.iterator]() {
+        return new GroupIterator(this);
     }
 }
+class GroupIterator {
+    constructor (g) {
+        this.i = 0;
+        this.group = g.group;
+    }
+
+    next() {
+        if (this.i == this.group.length) return {done: true};
+        
+        let value = this.group[this.i];
+        this.i++;
+        return {value, done: false};
+    }
+}
+for (let value of Group.fromNomalArray([1, 2, 2 ,3])) {
+    console.log(value);
+}
+
+//Borrowing a method 
+let map1 = {one: true, two: true, hasOwnProperty: true};
+console.log(map.hasOwnProperty("one"));
+// Fix this call
+console.log(hasOwnProperty.call(map1, 'one'));
+// → true
+
+//Project: A Robot
+
+
+
+
 
 
 
