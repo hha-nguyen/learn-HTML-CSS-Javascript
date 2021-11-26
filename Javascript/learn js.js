@@ -695,6 +695,71 @@ temp.fahrenheit = 86;
 console.log(temp.celsius); 
 // → 30
 
+//Inheritance
+class SymmetricMatrix extends Matrix { 
+    constructor(size, element = (x, y) => undefined) { 
+        super(size, size, (x, y) => { 
+            if (x < y) return element(y, x); 
+            else return element(x, y); 
+            }
+        ); 
+    }
+    set(x, y, value) { 
+        super.set(x, y, value); 
+        if (x != y) { 
+            super.set(y, x, value); 
+        } 
+    }
+}
+let matrix1 = new SymmetricMatrix(5, (x, y) => `${x},${y}`); 
+console.log(matrix1.get(2, 3)); // → 3,2
+
+//The instanceof operator
+console.log( new SymmetricMatrix(2) instanceof SymmetricMatrix); 
+// → true 
+console.log(new SymmetricMatrix(2) instanceof Matrix); 
+// → true 
+console.log(new Matrix(2, 2) instanceof SymmetricMatrix); 
+// → false 
+console.log([1] instanceof Array);
+// → true
+
+//Exercises
+//A vector type 
+class Vec {
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    get length() {
+        return Math.sqrt(this.x*this.x+this.y*this.y);
+    }
+    minus(vec) {
+        let new_x = this.x - vec.x;
+        let new_y = this.y - vec.y;
+        return new Vec(new_x, new_y);
+    }
+    plus(vec) {
+        let new_x = this.x + vec.x;
+        let new_y = this.y + vec.y;
+        return new Vec(new_x, new_y);
+    }
+}
+
+let v = new Vec(6, 9);
+console.log(v.length);
+console.log(v.minus(new Vec(1, 2)));
+console.log(v.plus(new Vec(1, -1)));
+
+//Groups
+class Group {
+    constructor (value) {
+        
+    }
+}
+
+
+
 
 
     
