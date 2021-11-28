@@ -809,7 +809,7 @@ console.log(map.hasOwnProperty("one"));
 console.log(hasOwnProperty.call(map1, 'one'));
 // → true
 
-//Project: A Robot
+
 
 
 
