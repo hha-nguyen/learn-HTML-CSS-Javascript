@@ -142,5 +142,9 @@ function goalOrientedRobot({place, parcels}, route) {
 
 
 
+
+
+
+
                 
                 
