@@ -813,7 +813,7 @@ console.log(hasOwnProperty.call(map1, 'one'));
 // Strict mode 
 function canYouSpotTheProblem() { 
     "use strict"; 
-    for (counter = 0; counter < 10; counter++) { 
+    for (let counter = 0; counter < 10; counter++) { 
         console.log("Happy happy"); 
     } 
 }
@@ -826,6 +826,83 @@ let ferdinand = Person("Ferdinand");
 // oops 
 console.log(name); 
 // → Ferdinand
+
+//Types
+
+//Testing
+function test(label, body) { 
+    if (!body()) console.log(`Failed: ${label}`); 
+}
+test("convert Latin text to uppercase", () => {
+    return "hello".toUpperCase() == "HELLO"; 
+}); 
+test("convert Greek text to uppercase", () => { 
+    return "Χαίρετε".toUpperCase() == "ΧΑΊΡΕΤΕ"; 
+}); 
+test("don't convert case-less characters", () => { });
+return "ఒడࢩࡑߣ".toUpperCase() == " ";
+
+//Debugging
+function promptNumber(question) { 
+    let result = Number(prompt(question)); 
+    if (Number.isNaN(result)) return null; 
+    else return result; 
+}
+console.log(promptNumber("How many trees do you see?"));
+
+//Exceptions
+function promptDirection(question) { 
+    let result = prompt(question); 
+    if (result.toLowerCase() == "left") return "L"; 
+    if (result.toLowerCase() == "right") return "R"; 
+    throw new Error("Invalid direction: " + result); 
+}
+function look() { 
+    if (promptDirection("Which way?") == "L") { 
+        return "a house"; 
+    } else { 
+        return "two angry bears"; 
+    } 
+}
+try { 
+    console.log("You see", look()); 
+} 
+catch (error) { 
+    console.log("Something went wrong: " + error); 
+}
+
+//Cleaning up after exceptions
+const accounts = { 
+    a: 100, 
+    b: 0, 
+    c: 20 
+};
+function getAccount() { 
+    let accountName = prompt("Enter an account name"); 
+    if (!accounts.hasOwnProperty(accountName)) { 
+        throw new Error(`No such account: ${accountName}`); 
+    } return accountName; 
+}
+// function transfer(from, amount) { 
+//     if (accounts[from] < amount) return; 
+//     accounts[from] -= amount; 
+//     accounts[getAccount()] += amount; 
+// }
+function transfer(from, amount) { 
+    if (accounts[from] < amount) return; 
+    let progress = 0; 
+    try { accounts[from] -= amount; 
+        progress = 1; 
+        accounts[getAccount()] += amount; 
+        progress = 2; 
+    } finally { 
+        if (progress == 1) { 
+            accounts[from] += amount; 
+        } 
+    } 
+}
+
+
 
 
 
