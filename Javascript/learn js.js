@@ -830,6 +830,7 @@ console.log(name);
 //Types
 
 //Testing
+/*
 function test(label, body) { 
     if (!body()) console.log(`Failed: ${label}`); 
 }
@@ -841,15 +842,17 @@ test("convert Greek text to uppercase", () => {
 }); 
 test("don't convert case-less characters", () => { });
 return "ఒడࢩࡑߣ".toUpperCase() == " ";
+*/
 
 //Debugging
+/*
 function promptNumber(question) { 
     let result = Number(prompt(question)); 
     if (Number.isNaN(result)) return null; 
     else return result; 
 }
 console.log(promptNumber("How many trees do you see?"));
-
+*/
 //Exceptions
 function promptDirection(question) { 
     let result = prompt(question); 
@@ -901,6 +904,83 @@ function transfer(from, amount) {
         } 
     } 
 }
+
+//Assertions
+function firstElement(array) { 
+    if (array.length == 0) { 
+        throw new Error("firstElement called with []"); 
+    } 
+    return array[0]; 
+}
+
+//Exercises
+//Retry
+class MultiplicatorUnitFailure extends Error {}
+
+function primitiveMultiply(a, b) {
+  if (Math.random() < 0.2) {
+    return a * b;
+  } else {
+    throw new MultiplicatorUnitFailure("Klunk");
+  }
+}
+
+function reliableMultiply(a, b) {
+  try {
+    return primitiveMultiply(a, b);
+  } catch (e) {
+    if (e instanceof MultiplicatorUnitFailure) {
+      return reliableMultiply(a, b);
+    } else {
+      throw e;
+    }
+  }
+}
+
+console.log(reliableMultiply(8, 8));
+// → 64
+//The locked box 
+const box = { 
+    locked: true, 
+    unlock() { 
+        this.locked = false; 
+    }, 
+    lock() { 
+        this.locked = true; 
+    }, 
+    _content: [], 
+    get content() { 
+        if (this.locked) throw new Error("Locked!"); 
+        return this._content; 
+    }
+};
+
+function withBoxUnlocked(body) {
+    var foundLocked = box.locked;
+    try {
+      box.unlock();
+      body();
+    } catch (e) {
+      console.log(e);
+    } finally {
+      if(foundLocked)
+        box.lock();
+    };
+  }
+  
+  withBoxUnlocked(function() {
+    box.content.push("gold piece");
+  });
+  
+  try {
+    withBoxUnlocked(function() {
+      throw new Error("Pirates on the horizon! Abort!");
+    });
+  } catch (e) {
+    console.log("Error raised:", e);
+  }
+  console.log(box.locked);
+
 
 
 
