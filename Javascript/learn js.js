@@ -1066,16 +1066,155 @@ function minusOne(match, amount, unit) {
 console.log(stock.replace(/(\d+) (\w+)/g, minusOne)); 
 // → no lemon, 1 cabbage, and 100 eggs
 
-//Greed
+//Greed 
 function stripComments(code) { 
-    return code.replace(/\/\/.*|\/\*[^]*\//g, ""); 
+    return code.replace(/\/\/.*|\/\*[^]*?\*\//g, ""); 
 } 
 console.log(stripComments("1 + /* 2 */3")); 
 // → 1 + 3 
 console.log(stripComments("x = 10;// ten!")); 
 // → x = 10; 
 console.log(stripComments("1 /* a */+/* b */ 1")); 
-// → 1 1
+// → 1 + 1
+
+//Dynamically creating RegExp objects 
+name = "harry";
+text = "Harry is a suspicious character."; 
+let regexp = new RegExp("\\b(" + name + ")\\b", "gi"); 
+console.log(text.replace(regexp, "_$1_")); 
+// → _Harry_ is a suspicious character.
+name = "dea+hl[]rd"; 
+text = "This dea+hl[]rd guy is super annoying."; 
+let escaped = name.replace(/[\\[.+*?(){|^$]/g, "\\$&"); 
+regexp = new RegExp("\\b" + escaped + "\\b", "gi"); 
+console.log(text.replace(regexp, "_$&_")); 
+// → This _dea+hl[]rd_ guy is super annoying.
+
+//The search method
+console.log(" word".search(/\S/)); // → 2 
+console.log(" ".search(/\S/)); // → -1
+
+//The lastIndex property
+let pattern = /y/g; 
+pattern.lastIndex = 3; 
+match = pattern.exec("xyzzy"); 
+console.log(match.index); 
+// → 4 
+console.log(pattern.lastIndex); 
+// → 5
+let global = /abc/g; 
+console.log(global.exec("xyz abc")); 
+// → ["abc"] 
+let sticky = /abc/y; 
+console.log(sticky.exec("xyz abc")); 
+// → null
+let digit = /\d/g; 
+console.log(digit.exec("here it is: 1")); 
+// → ["1"] 
+console.log(digit.exec("and now: 1")); 
+// → null
+console.log("Banana".match(/an/g)); 
+// → ["an", "an"]
+
+//Looping over matches
+let input = "A string with 3 numbers in it... 42 and 88."; 
+let number = /\b\d+\b/g; 
+let match2;
+while (match2 = number.exec(input)) { 
+    console.log("Found", match2[0], "at", match2.index); 
+} 
+// → Found 3 at 14 
+// Found 42 at 33 
+// Found 88 at 40
+
+//Parsing an INI file 
+// searchengine=https://duckduckgo.com/?q=$1 spitefulness=9.7
+//; comments are preceded by a semicolon... 
+//; each section concerns an individual enemy [larry] 
+// fullname=Larry Doe 
+// type=kindergarten bully 
+// website=http://www.geocities.com/CapeCanaveral/11451
+// [davaeorn] 
+// fullname=Davaeorn 
+// type=evil wizard 
+// outputdir=/home/marijn/enemies/davaeorn
+function parseINI(string) { 
+    // Start with an object to hold the top-level fields 
+    let result = {}; 
+    let section = result; 
+    string.split(/\r?\n/).forEach(line => { 
+        let match1; 
+        if (match1 = line.match(/^(\w+)=(.*)$/)) { 
+            section[match1[1]] = match1[2]; 
+        } else if (match1 = line.match(/^\[(.*)\]$/)) { 
+            section = result[match1[1]] = {}; 
+        } else if (!/^\s*(;.*)?$/.test(line)) { 
+            throw new Error("Line '" + line + "' is not valid."); 
+        } 
+    }); 
+    return result; 
+}
+console.log(parseINI(`
+name=Vasilis\n[address]\ncity=Tessaloniki`));
+// → {name: "Vasilis", address: {city: "Tessaloniki"}}
+
+//International characters
+console.log(/🍎{3}/.test("🍎🍎🍎")); 
+// → false 
+console.log(/<.>/.test("<🌹>")); 
+// → false 
+console.log(/<.>/u.test("<🌹>"));
+// → true
+console.log(/\p{Script=Greek}/u.test("α")); // → true 
+console.log(/\p{Script=Arabic}/u.test("α")); // → false 
+console.log(/\p{Alphabetic}/u.test("α")); // → true 
+console.log(/\p{Alphabetic}/u.test("!")); // → false
+
+//Exercises
+//Regexp golf 
+console.log(/\b(car|cat)\b/.test("car and shit"));
+console.log(/\b(pr?op)\b/.test("pop is shit"));
+console.log(/\bferr(.*)\b/.test("ferrari is just bullshit"));
+console.log(/ious\b/.test("That is obvious bullshit"));
+console.log(/\s[.|;|:|,]/.test("shit ;"));
+console.log(/.{7,}/.test("this is shit"));
+console.log(/\b[^e\s]+\b/i.test("everton"));
+
+//Quoting style
+var text = "'I'm the cook' he said, 'it's my job'";
+console.log(text.replace(/(^)'|(\W)'|'(\W)|'($)/g, "$1$2\"$3"));
+
+// Numbers again
+number = /^(\+|-)?((\d+(\.\d*)?)|(\.\d+))(((e|E)(\+|-)?)\d+)?$/;
+// or 
+// number = /^[+\-]?((\d+(\.\d*)?)|(\.\d+))(([eE][+\-]?)\d+)?$/;
+// Tests:
+["1", "-1", "+15", "1.55", ".5", "5.", "1.3e2", "1E-4",
+ "1e+12", "+1.e3", ".8e-3"].forEach(function(s) {
+   if (!number.test(s)) {
+    console.log("Failed to match '" + s + "'");
+   } else {
+     console.log(s, "matched correctly!");
+   }
+});
+["1a", "+-1", "1.2.3", "1+1", "1e4.5", ".5.", "1f5",
+ "."].forEach(function(s) {
+   if (number.test(s)) {
+    console.log("Incorrectly accepted '" + s + "'");
+   } else {
+     console.log(s, "not matched correctly!");
+   } 
+});
+
+
+
+    
+
+
+
+
+
+
 
 
 
