@@ -26,6 +26,13 @@ console.log(plusOne(4));
 //CommonJS
 //ECMAScript modules
 //Building and bundling 
+//Module design
+//Exercises
+//A modular robot
+//Roads module
+//Circular dependencies
+
+//Asynchronous Programming
 
 
 
