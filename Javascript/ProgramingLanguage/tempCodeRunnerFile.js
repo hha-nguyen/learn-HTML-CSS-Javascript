@@ -1,1 +1,1 @@
-match = /^[^\s(),#"]+/.exec(program)
+parse

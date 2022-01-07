@@ -1,6 +1,8 @@
+const { parse } = require("./parsing");
+
 const specialForms = Object.create(null);
 
-function evaluate(expr, scope) { 
+let evaluate = (expr, scope) => { 
 
     if (expr.type == "value") { 
         return expr.value; 
@@ -29,3 +31,13 @@ function evaluate(expr, scope) {
         } 
     } 
 }
+
+module.exports = {
+    evaluate,
+    parse
+}
+console.log(parse("+(a, 10)")); 
+// → {type: "apply", 
+// operator: {type: "word", name: "+"}, 
+// args: [{type: "word", name: "a"}, 
+// {type: "value", value: 10}]}

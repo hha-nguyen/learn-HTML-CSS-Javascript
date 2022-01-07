@@ -113,7 +113,10 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 
 
 //Project: A Programming Language
-//Parsing
+
+//JavaScript and the Browser
+//Networks and the Internet
+
 
 
 
