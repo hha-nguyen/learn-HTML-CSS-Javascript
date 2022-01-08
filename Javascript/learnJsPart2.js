@@ -112,11 +112,22 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
   });
 
 
-//Project: A Programming Language
+// Project: A Programming Language
 
-//JavaScript and the Browser
-//Networks and the Internet
+// JavaScript and the Browser
+// Networks and the Internet
+// The Web
+// HTML
+// HTML and JavaScript
+// In the sandbox 
+// Compatibility and the browser wars 
 
+// The Document Object Model
+// The standard
+// Moving through the tree 
+// Finding elements 
+// Changing the document 
+// Creating nodes 
 
 
 
