@@ -53,4 +53,19 @@ document.getElementById("quote").appendChild(
             elt("em", "The Open Society and Its Enemies"), ", 1950")
 ); 
 
+//Attributes
+let paras = document.body.getElementsByTagName("p"); 
+
+for (let para of Array.from(paras)) { 
+  if (para.getAttribute("data-classified") == "secret") { 
+    para.remove();
+  }
+}
+
+//Layout
+let para = document.getElementById("layout"); 
+
+console.log("clientHeight:", para.clientHeight); 
+console.log("offsetHeight:", para.offsetHeight); 
+
 
