@@ -64,8 +64,67 @@ for (let para of Array.from(paras)) {
 
 //Layout
 let para = document.getElementById("layout"); 
-
 console.log("clientHeight:", para.clientHeight); 
 console.log("offsetHeight:", para.offsetHeight); 
+
+function time(name, action) { 
+  let start = Date.now(); // Current time in milliseconds 
+  action(); 
+  console.log(name, "took", Date.now() - start, "ms"); 
+}
+
+time("naive", () => { 
+  let target = document.getElementById("one"); 
+  while (target.offsetWidth < 2000) { 
+    target.appendChild(document.createTextNode("X")); 
+  } 
+});
+// → naive took 32 ms
+
+time("clever", function() { 
+  let target = document.getElementById("two");
+  target.appendChild(document.createTextNode("XXXXX")); 
+  let total = Math.ceil(2000 / (target.offsetWidth / 5)); 
+  target.firstChild.nodeValue = "X".repeat(total); 
+}); 
+// → clever took 1 ms 
+
+//Styling
+para = document.getElementById("para"); 
+console.log(para.style.color); 
+para.style.color = "magenta"; 
+
+// Cascading styles
+
+//Query selectors
+function count(selector) { 
+  return document.querySelectorAll(selector).length; 
+} 
+console.log(count("p")); // All <p> elements 
+// → 4 
+console.log(count(".animal")); // Class animal 
+// → 2 
+console.log(count("p .animal"));// Animal inside of <p> 
+// → 2 
+console.log(count("p > .animal")); // Direct child of <p> 
+// → 1 
+
+// Positioning and animating 
+let cat = document.querySelector("img"); 
+let angle = Math.PI / 2; 
+
+function animate(time, lastTime) { 
+  if (lastTime != null) { 
+    angle += (time - lastTime) * 0.001; 
+  } 
+
+  cat.style.top = (Math.sin(angle) * 20) + "px"; 
+  cat.style.left = (Math.cos(angle) * 200) + "px"; 
+  
+  requestAnimationFrame(newTime => animate(newTime, time)); 
+} 
+
+requestAnimationFrame(animate); 
+
 
 
