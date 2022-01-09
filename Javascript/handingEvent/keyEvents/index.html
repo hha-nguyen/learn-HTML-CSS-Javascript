@@ -1,4 +1,4 @@
-<p>This page turns violet when you hold the V key.</p> 
+<!-- <p>This page turns violet when you hold the V key.</p> 
 
 <script> 
     window.addEventListener("keydown", event => { 
@@ -11,4 +11,14 @@
             document.body.style.background = ""; 
         } 
     }); 
+</script> -->
+
+<p>Press Control-Space to continue.</p> 
+<script>
+    window.addEventListener("keydown", event => { 
+        if (event.key == " " && event.ctrlKey) { 
+            console.log("Continuing!"); 
+        } 
+    }); 
 </script>
+    

@@ -142,7 +142,8 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Propagation
 // Default actions 
 // Key events 
-
+// Pointer events 
+// Mouse clicks 
 
 
 
