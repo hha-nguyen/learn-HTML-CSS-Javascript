@@ -109,22 +109,8 @@ console.log(count("p .animal"));// Animal inside of <p>
 console.log(count("p > .animal")); // Direct child of <p> 
 // → 1 
 
-// Positioning and animating 
-let cat = document.querySelector("img"); 
-let angle = Math.PI / 2; 
+// Positioning and animating
 
-function animate(time, lastTime) { 
-  if (lastTime != null) { 
-    angle += (time - lastTime) * 0.001; 
-  } 
-
-  cat.style.top = (Math.sin(angle) * 20) + "px"; 
-  cat.style.left = (Math.cos(angle) * 200) + "px"; 
-  
-  requestAnimationFrame(newTime => animate(newTime, time)); 
-} 
-
-requestAnimationFrame(animate); 
 
 
 
