@@ -135,6 +135,15 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Query selectors
 // Positioning and animating 
 
+// Handling Events
+// Event handlers 
+// Events and DOM nodes 
+// Event objects 
+// Propagation
+// Default actions 
+// Key events 
+
+
 
 
 

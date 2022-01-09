@@ -16,3 +16,8 @@ function byTagName(node, tagName) {
     explore(node);
     return found;
 }
+
+console.log(byTagName(document.body, "h1").length); // prints 1
+console.log(byTagName(document.body, "span").length); // prints 3
+var para = document.querySelector("p");
+console.log(byTagName(para, "span").length); // prints 2
