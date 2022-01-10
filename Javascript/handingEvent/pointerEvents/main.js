@@ -24,7 +24,7 @@ function moved(event) {
         window.removeEventListener("mousemove", moved); 
     } else { 
         let dist = event.clientX - lastX; 
-        let newWidth = Math.max(10, bar.offsetWidth + dist); 
+        let newWidth = Math.max(10, bar.offsetWidth+ dist); 
         bar.style.width = newWidth + "px"; 
         lastX = event.clientX; 
     } 
