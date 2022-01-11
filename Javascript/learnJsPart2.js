@@ -146,6 +146,9 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Mouse clicks 
 // Touch events 
 // Scroll events 
+// Focus events
+// Load event 
+// Events and the event loop
 
 
 
