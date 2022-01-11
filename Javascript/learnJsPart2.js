@@ -152,6 +152,7 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Debouncing
 // Exercises
 // Balloon
+// Mouse trail
 
 
 
