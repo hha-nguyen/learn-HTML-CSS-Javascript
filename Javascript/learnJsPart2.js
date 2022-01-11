@@ -149,6 +149,9 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Focus events
 // Load event 
 // Events and the event loop
+// Debouncing
+// Exercises
+// Balloon
 
 
 
