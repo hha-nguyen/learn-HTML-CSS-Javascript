@@ -155,9 +155,11 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Mouse trail
 
 // Project: A Platform Game
-// The game .
-
-
+// The game 
+// The technology 
+// Levels
+// Reading a level 
+// Actors
 
 
 
