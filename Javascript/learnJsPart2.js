@@ -160,6 +160,8 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Levels
 // Reading a level 
 // Actors
+// Encapsulation as a burden
+
 
 
 
