@@ -167,6 +167,7 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // The canvas element 
 // Lines and surfaces 
 // Paths
+// Curves
 
 
 
