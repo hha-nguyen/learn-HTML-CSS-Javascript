@@ -162,6 +162,13 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Actors
 // Encapsulation as a burden
 
+// Drawing on Canvas
+// SVG
+// The canvas element 
+// Lines and surfaces 
+// Paths
+
+
 
 
 

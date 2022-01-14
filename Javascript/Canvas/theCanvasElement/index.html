@@ -1,0 +1,10 @@
+<p>Before canvas.</p> 
+<canvas width="120" height="60"></canvas> 
+<p>After canvas.</p> 
+
+<script> 
+    let canvas = document.querySelector("canvas"); 
+    let context = canvas.getContext("2d"); 
+    context.fillStyle = "red"; 
+    context.fillRect(10, 10, 100, 50); // 100 pixels wide and 50 pixels high, with its top-left corner at coordinates (10,10).
+</script>
