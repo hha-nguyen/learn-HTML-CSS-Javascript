@@ -168,6 +168,13 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Lines and surfaces 
 // Paths
 // Curves
+// Drawing a pie chart 
+// Text
+// Images
+// Transformation
+// Storing and clearing transformations 
+// Back to the game
+// Choosing a graphics interface 
 
 
 
