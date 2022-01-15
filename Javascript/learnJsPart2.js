@@ -180,7 +180,7 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // The protocol 
 // Browsers and HTTP 
 // Fetch
-
+// HTTP sandboxing
 
 
 
