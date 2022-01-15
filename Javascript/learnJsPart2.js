@@ -176,6 +176,13 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Back to the game
 // Choosing a graphics interface 
 
+// HTTP and Forms
+// The protocol 
+// Browsers and HTTP 
+// Fetch
+
+
+
 
 
 
