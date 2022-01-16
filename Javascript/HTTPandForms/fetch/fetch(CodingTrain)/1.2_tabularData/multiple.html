@@ -17,20 +17,42 @@
 
     async function setData() {
       const ctx = document.getElementById('myChart').getContext('2d');
-      const globalTemp = await getData();
+      const data = await getData();
       const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: globalTemp.years,
+            labels: data.years,
             datasets: [{
-                label: 'temperature in °C',
-                data: globalTemp.temps,
+                label: 'Global temperature in °C',
+                data: data.G_temps,
                 fill: false,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Northern Hemisphere Temperature in °C',
+                data: data.N_temps,
+                fill: false,
+                backgroundColor: [
+                    'rgba(99, 132, 255, 1)',
+                ],
+                borderColor: [
+                    'rgba(99, 132, 255, 0.5)',
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Souther Hemisphere in °C',
+                data: data.S_temps,
+                fill: false,
+                backgroundColor: [
+                    'rgba(99, 255, 132, 1)',
+                ],
+                borderColor: [
+                    'rgba(99, 255, 132, 0.5)',
                 ],
                 borderWidth: 1
             }]
@@ -41,16 +63,20 @@
 
     async function getData() {
       const years = [];
-      const temps = [];
+      const G_temps = [];
+      const N_temps = [];
+      const S_temps = [];
       const response = await fetch('ZonAnn.Ts+dSST.csv');
       const data = await response.text();
       const rows = await data.split('\n').slice(1);
       rows.forEach(row => {
         const column = row.split(',');
         years.push(column[0]);
-        temps.push(parseFloat(column[1]) + 14);
+        G_temps.push(parseFloat(column[1]) + 14);
+        N_temps.push(parseFloat(column[2]) + 14);
+        S_temps.push(parseFloat(column[3]) + 14);
       });
-      return {years, temps};
+      return {years, G_temps, N_temps, S_temps};
     }
   </script>
 </body>
