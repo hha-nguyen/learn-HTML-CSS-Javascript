@@ -191,6 +191,8 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Checkboxes and radio buttons 
 // Select fields 
 // File fields 
+// Storing data client-side 
+
 
 
 
