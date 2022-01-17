@@ -1,0 +1,14 @@
+<input type="text"> 
+<script> 
+    document.querySelector("input").focus(); 
+    console.log(document.activeElement.tagName); 
+    // → INPUT 
+    document.querySelector("input").blur(); 
+    console.log(document.activeElement.tagName); 
+    // → BODY 
+</script>
+
+<input type="text" tabindex=1> 
+<a href=".">(help)</a> 
+<button onclick="console.log('ok')" tabindex=2>OK</button>
+

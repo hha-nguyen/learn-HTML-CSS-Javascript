@@ -181,6 +181,17 @@ Promise_all([soon(1), Promise.reject("X"), soon(3)])
 // Browsers and HTTP 
 // Fetch
 // HTTP sandboxing
+// Appreciating HTTP 
+// Security and HTTPS 
+// Form fields 
+// Focus
+// Disabled fields 
+// The form as a whole 
+// Text fields 
+// Checkboxes and radio buttons 
+// Select fields 
+// File fields 
+
 
 
 
