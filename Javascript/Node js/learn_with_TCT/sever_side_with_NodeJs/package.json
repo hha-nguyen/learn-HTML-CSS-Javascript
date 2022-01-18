@@ -14,6 +14,7 @@
   "author": "mesto",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "nedb": "^1.8.0"
   }
 }
