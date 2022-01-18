@@ -1,2 +1,6 @@
-match = /^[^\s(),#"]+/.exec("thatis bullshit");
-console.log(match);
+let newState = {
+    notes: {"shopping list": "Carrots\nRaisins"}, 
+    selected: "shopping list"
+}
+
+console.log(Object.keys(newState));
