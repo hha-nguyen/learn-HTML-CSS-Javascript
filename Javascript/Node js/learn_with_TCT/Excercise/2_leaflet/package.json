@@ -1,0 +1,21 @@
+{
+  "name": "2_leaflet",
+  "version": "1.0.0",
+  "description": "Exercise 2 of learning Node js course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "node",
+    "js",
+    "exercise",
+    "leaflet"
+  ],
+  "author": "mesto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
