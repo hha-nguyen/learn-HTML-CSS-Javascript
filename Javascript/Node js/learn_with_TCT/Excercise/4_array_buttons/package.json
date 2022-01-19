@@ -1,0 +1,21 @@
+{
+  "name": "4_array_buttons",
+  "version": "1.0.0",
+  "description": "this is exercise 4 of node js course about array of buttons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "node",
+    "js",
+    "array",
+    "button"
+  ],
+  "author": "mesto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
