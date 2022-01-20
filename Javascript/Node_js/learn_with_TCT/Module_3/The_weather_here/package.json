@@ -1,0 +1,23 @@
+{
+  "name": "the_weather_here",
+  "version": "1.0.0",
+  "description": "give the current weather in my location with extenal API ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "node",
+    "js",
+    "weather",
+    "api"
+  ],
+  "author": "mesto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nedb": "^1.8.0",
+    "node-fetch": "^3.1.1"
+  }
+}
