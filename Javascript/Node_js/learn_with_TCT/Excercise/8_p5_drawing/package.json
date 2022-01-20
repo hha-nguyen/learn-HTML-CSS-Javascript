@@ -1,0 +1,22 @@
+{
+  "name": "8_p5_drawing",
+  "version": "1.0.0",
+  "description": "this is exercise 8 of node js course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "node",
+    "js",
+    "p5",
+    "drawing"
+  ],
+  "author": "mesto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nedb": "^1.8.0"
+  }
+}
