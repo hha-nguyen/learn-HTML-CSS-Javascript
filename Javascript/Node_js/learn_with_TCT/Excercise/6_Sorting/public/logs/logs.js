@@ -1,0 +1,3 @@
+getData();
+
+const selfie = [];

@@ -1,0 +1,20 @@
+{
+  "name": "3_button",
+  "version": "1.0.0",
+  "description": "This is exercise 3 of node js course ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "node",
+    "js",
+    "button"
+  ],
+  "author": "mesto",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
