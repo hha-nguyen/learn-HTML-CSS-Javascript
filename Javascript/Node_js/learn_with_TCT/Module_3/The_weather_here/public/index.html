@@ -7,19 +7,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="shortcut icon" href="">
     <title>Document</title>
   </head>
   <body>
     <h1>The weather here</h1>
-    <div><a href="/">enter</a> | <a href="/checkins">list</a></div>
+    <div><a href="/">check in</a> | <a href="/checkins">list</a></div>
     <p>
-      latitude: <span id="latitude"></span>&deg;<br />
-      longitude: <span id="longitude"></span>&deg;
+      latitude: <span id="latitude"></span>°<br />
+      longitude: <span id="longitude"></span>°
     </p>
     <p>
       the weather here is <span id="description"></span> with a temperature of 
-      <span id="temperature"></span> degrees celsius.
+      <span id="temperature"></span> degrees celsius. <br>
+      The air quality index (aqi) in your city (<span id="aq_city"></span>) is <span id="aq_aqi"></span> with paticulate matter (<span id="aq_pm"></span>). Your air status is <span id="aq_status"></span> last read on <span id="aq_date"></span>.
     </p>
     <button id="checkin">check in</button>
     <script src="sketch.js"></script>
