@@ -16,6 +16,7 @@ app.get('/api', (request, response) => {
       return;
     }
     response.json(data);
+    console.log(data);
   });
 });
 

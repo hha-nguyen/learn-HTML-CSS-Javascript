@@ -7,18 +7,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" href="">
     <title>Document</title>
   </head>
   <body>
-    <h1>Data Selfie App</h1>
+    <h1>The weather here</h1>
     <div><a href="/">enter</a> | <a href="/checkins">list</a></div>
     <p>
       latitude: <span id="latitude"></span>&deg;<br />
       longitude: <span id="longitude"></span>&deg;
     </p>
-    <label for="mood">enter your mood</label>
-    <input id="mood" value="rainbow" />
-    <button id="submit">submit</button>
+    <p>
+      the weather here is <span id="description"></span> with a temperature of 
+      <span id="temperature"></span> degrees celsius.
+    </p>
+    <button id="checkin">check in</button>
     <script src="sketch.js"></script>
   </body>
 </html>
