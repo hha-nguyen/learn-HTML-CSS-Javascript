@@ -24,13 +24,17 @@ function setup() {
       console.log(lat, lon);
       document.getElementById('latitude').textContent = lat;
       document.getElementById('longitude').textContent = lon;
-      const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=90bf63c218a02d111dfd7e3f6db5222f&units=metric`;
+      const api_key = process.env.API_KEY;
+      const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
       const weather_response = await fetch(weather_url);
       const weather_data = await weather_response.json();
       document.getElementById('description').textContent = weather_data.weather[0].description;
       document.getElementById('temperature').textContent = weather_data.main.temp.toFixed(2);
+      document.getElementById('lat').textContent = weather_data.coord.lat;
+      document.getElementById('lon').textContent = weather_data.coord.lon;
 
-      const aq_url = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=a40f1b450083221b49014135908885d7aa1fe82a`;
+      const token = process.env.TOKEN;
+      const aq_url = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${token}`;
       const aq_response = await fetch(aq_url);
       const aq_data = await aq_response.json();
       document.getElementById('aq_city').textContent = aq_data.data.city.name;

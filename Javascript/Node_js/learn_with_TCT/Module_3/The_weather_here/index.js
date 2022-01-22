@@ -1,5 +1,6 @@
 const express = require('express');
 const Datastore = require('nedb');
+require('dotenv').config();
 
 const app = express();
 app.listen(3000, () => console.log('listening at 3000'));
