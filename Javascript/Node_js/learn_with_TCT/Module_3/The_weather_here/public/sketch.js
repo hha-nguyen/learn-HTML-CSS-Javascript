@@ -25,7 +25,7 @@ function setup() {
       document.getElementById('latitude').textContent = lat;
       document.getElementById('longitude').textContent = lon;
       const api_key = process.env.API_KEY;
-      const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+      const weather_url = `weather/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
       const weather_response = await fetch(weather_url);
       const weather_data = await weather_response.json();
       document.getElementById('description').textContent = weather_data.weather[0].description;

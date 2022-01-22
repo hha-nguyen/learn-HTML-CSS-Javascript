@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "give the current weather in my location with extenal API ",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
