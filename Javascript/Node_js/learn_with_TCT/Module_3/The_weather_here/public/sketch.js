@@ -28,18 +28,14 @@ function setup() {
       const response = await fetch(api_url);
       const json = await response.json();
       
-      // const api_key = process.env.API_KEY;
       console.log(json);
-      const weather_data = json;
+      const weather_data = json.weather;
       document.getElementById('description').textContent = weather_data.weather[0].description;
       document.getElementById('temperature').textContent = weather_data.main.temp.toFixed(2);
       document.getElementById('lat').textContent = weather_data.coord.lat;
       document.getElementById('lon').textContent = weather_data.coord.lon;
-
-      // const token = process.env.TOKEN;
-      const aq_url = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=a40f1b450083221b49014135908885d7aa1fe82a`;
-      const aq_response = await fetch(aq_url);
-      const aq_data = await aq_response.json();
+      
+      const aq_data = json.air_quality;
       document.getElementById('aq_city').textContent = aq_data.data.city.name;
       document.getElementById('aq_aqi').textContent = aq_data.data.aqi;
       document.getElementById('aq_pm').textContent = aq_data.data.dominentpol;
@@ -47,11 +43,6 @@ function setup() {
       document.getElementById('aq_date').textContent = aq_data.data.time.iso;
       
       weather = weather_data, air = aq_data;
-      const data = {
-        weather: weather_data,
-        air_quality: aq_data
-      }
-      console.log(data);
     });
   } else {
     console.log('geolocation not available');

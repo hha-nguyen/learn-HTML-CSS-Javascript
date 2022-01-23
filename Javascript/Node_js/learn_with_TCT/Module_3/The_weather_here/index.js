@@ -31,13 +31,22 @@ app.post('/api', (request, response) => {
 });
 
 app.get('/weather/:latlon', async (request, response) => {
-  console.log(request.params);
   const latlon = request.params.latlon.split(',');
   const lat = latlon[0];
   const lon = latlon[1];
   const api_key = process.env.API_KEY;
-  const api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
-  const fetch_response = await fetch(api_url);
-  const json = await fetch_response.json();
-  response.json(json);
+  const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+  const weather_response = await fetch(weather_url);
+  const weather_data = await weather_response.json();
+
+  const token = process.env.TOKEN;
+  const aq_url = `https://api.waqi.info/feed/geo:${lat};${lon}/?token=${token}`;
+  const aq_response = await fetch(aq_url);
+  const aq_data = await aq_response.json();
+
+  const data = {
+    weather: weather_data,
+    air_quality: aq_data
+  };
+  response.json(data);
 });
